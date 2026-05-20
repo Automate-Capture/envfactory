@@ -1,0 +1,27 @@
+---
+title: "EnvFactory: EnvFactory: Scaling Tool-Use Agents via Executable Environme"
+abstract: "Synthetic environments for training robust tool-use agents via trajectory synthesis"
+authors:
+  - name: "Andrew Young"
+    affiliation: "Automate Capture Research"
+publishedDate: 2026-05-19
+tags:
+  - tool-use agents
+  - executable environments
+  - reinforcement learning
+  - environment synthesis
+  - agent scaling
+status: published
+featured: false
+pdfUrl: "https://research.automate-capture.com/papers/RR-envfactory-Young2026.pdf"
+---
+
+# Research Journal Entry: EnvFactory
+
+The motivation behind EnvFactory stems from a fundamental challenge in training autonomous agents to interact with real-world APIs and tools: the scarcity of high-quality, diverse training data. Existing approaches to agent training typically rely on either hand-crafted demonstrations or synthetic data generated without guarantees about environmental validity. This creates a bottleneck where agents learn spurious patterns from unrealistic trajectories or fail to generalize to edge cases in production environments. Our goal with EnvFactory is to bridge this gap by building a systematic framework that generates executable, verified trajectories for training tool-use agents. Rather than treating environment simulation as a post-hoc concern, we embed rigorous API verification and calibration directly into the trajectory synthesis pipeline. This allows us to produce training data that reflects real API constraints, stateful interactions, and failure modes—ultimately scaling the quality of agentic systems without requiring proportional increases in human annotation effort.
+
+The core architecture of EnvFactory revolves around three interconnected components. First, we implement a stateful API environment verification system that introspects tool schemas and validates that generated trajectories would actually execute successfully against real APIs. Rather than relying on naive API mocking, we maintain precise state representations that track parameter dependencies, preconditions, and postconditions across sequential tool calls. Second, we employ calibrated trajectory synthesis, where we iteratively generate candidate action sequences and adjust their properties—such as parameter distributions, state transitions, and failure probabilities—to match observed deployment patterns. This calibration process uses lightweight RL signals derived from trajectory validity and diversity metrics, allowing us to steer synthesis toward realistic, representative data without expensive online interaction. Third, we package everything as a composable Python library with a clear configuration interface via YAML schemas. This design allows researchers to plug in custom verification logic for domain-specific tools, define calibration objectives, and generate large-scale training datasets programmatically. The dependency stack (PyYAML, jsonschema, requests, OpenAI) reflects our choices: YAML for human-readable configuration, jsonschema for declarative API contracts, requests for actual API probing, and OpenAI for leveraging language models in trajectory generation.
+
+Through developing EnvFactory, we've learned several important lessons. First, verification-aware synthesis is non-trivial—many API interactions that are individually valid can become invalid in sequence due to state constraints, a problem that simple rejection sampling handles poorly. We found that maintaining explicit state machines dramatically improved our hit rate for generating executable trajectories. Second, the choice of calibration signal matters enormously; raw likelihood-weighted sampling from language models produces highly skewed distributions that don't reflect real usage, while calibration against diversity and rarity metrics produces more balanced datasets. However, we also discovered limitations: our current approach requires upfront specification of state schemas and calibration targets, which demands domain expertise and limits applicability to poorly documented APIs. Additionally, the computational cost of verifying trajectories against live APIs scales with dataset size, creating a tension between thoroughness and practicality that we've only partially resolved through caching and asynchronous validation.
+
+EnvFactory positions itself within a growing research area at the intersection of synthetic data generation, reinforcement learning, and AI systems. It complements recent work on in-context learning for tool use and structured generation for API calls, but with an emphasis on systematic verification and scalability. The framework shares philosophical DNA with curriculum learning and data-centric AI, recognizing that agent performance is bounded by data quality rather than model capacity alone. Looking forward, we see opportunities to integrate program synthesis techniques for generating more complex action sequences, extend verification to multi-agent scenarios, and develop theoretical guarantees about coverage and distribution matching. We hope EnvFactory serves as a foundation for the community to build more reliable, robust agentic systems grounded in executable, realistic training environments.

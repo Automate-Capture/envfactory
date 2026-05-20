@@ -1,0 +1,9 @@
+Build complete. `pip install -e .` succeeds and all 19 tests pass in 2s.
+
+**What was built (6 modules):**
+- **schema_ingestion** — parses OpenAPI 3.x / Swagger 2.0, resolves `$ref` chains, normalizes to `EndpointDef` dataclasses
+- **dependency_inference** — heuristic field-name matching to build a directed dependency graph between endpoints
+- **sandbox_server** — in-process Flask app with full CRUD task-management API (stateful, in-memory)
+- **session_state** — typed key-value store for cross-endpoint parameter resolution via DAG edges
+- **environment_verifier** — topological traversal of the inferred DAG, executing each endpoint live against the sandbox to confirm/reject edges
+- **trajectory_sampler** — weighted random walks over the verified DAG producing `ExecutionTrace` objects for agent training

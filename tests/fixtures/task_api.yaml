@@ -1,0 +1,148 @@
+openapi: "3.0.3"
+info:
+  title: Task Management API
+  version: "1.0.0"
+servers:
+  - url: http://localhost:5000
+paths:
+  /projects:
+    post:
+      operationId: createProject
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  tasks:
+                    type: array
+                    items:
+                      type: string
+
+  /projects/{id}/tasks:
+    post:
+      operationId: createTask
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                status:
+                  type: string
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  task_id:
+                    type: string
+                  project_id:
+                    type: string
+                  title:
+                    type: string
+                  status:
+                    type: string
+    get:
+      operationId: listTasks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    task_id:
+                      type: string
+                    project_id:
+                      type: string
+                    title:
+                      type: string
+                    status:
+                      type: string
+
+  /tasks/{task_id}:
+    get:
+      operationId: getTask
+      parameters:
+        - name: task_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  task_id:
+                    type: string
+                  project_id:
+                    type: string
+                  title:
+                    type: string
+                  status:
+                    type: string
+    delete:
+      operationId: deleteTask
+      parameters:
+        - name: task_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  deleted:
+                    type: boolean
+                  id:
+                    type: string
