@@ -5,7 +5,7 @@ Thank you for your interest in contributing to EnvFactory!
 ## Development Setup
 
 ```bash
-git clone https://github.com/Lumi-node/envfactory.git
+git clone https://github.com/Automate-Capture/envfactory.git
 cd envfactory
 pip install -e ".[dev]"
 ```

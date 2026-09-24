@@ -1,10 +1,10 @@
 site_name: EnvFactory
-site_url: https://lumi-node.github.io/envfactory/
+site_url: https://automate-capture.github.io/envfactory/
 site_description: "Synthetic environments for training robust tool-use agents via trajectory synthesis"
 site_author: Andrew Young
-repo_url: https://github.com/Lumi-node/envfactory
-repo_name: Lumi-node/envfactory
-edit_uri: edit/main/docs/
+repo_url: https://github.com/Automate-Capture/envfactory
+repo_name: Automate-Capture/envfactory
+edit_uri: edit/master/docs/
 
 theme:
   name: material
@@ -62,7 +62,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/Lumi-node/envfactory
+      link: https://github.com/Automate-Capture/envfactory
   generator: false
 
 extra_css:

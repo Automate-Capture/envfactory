@@ -9,9 +9,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Lumi-node/envfactory/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License: MIT"></a>
-  <a href="https://github.com/Lumi-node/envfactory"><img src="https://img.shields.io/badge/python->=3.10-brightgreen" alt="Python >= 3.10"></a>
-  <a href="https://github.com/Lumi-node/envfactory"><img src="https://img.shields.io/badge/tests-283-success" alt="Tests: 283"></a>
+  <a href="https://github.com/Automate-Capture/envfactory/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License: MIT"></a>
+  <a href="https://github.com/Automate-Capture/envfactory"><img src="https://img.shields.io/badge/python->=3.10-brightgreen" alt="Python >= 3.10"></a>
+  <a href="https://github.com/Automate-Capture/envfactory"><img src="https://img.shields.io/badge/tests-283-success" alt="Tests: 283"></a>
 </p>
 
 ---
@@ -170,7 +170,7 @@ The package includes 283 tests covering dependency inference, environment verifi
 
 ## Contributing
 
-Contributions are welcome! Please open issues and pull requests on [GitHub](https://github.com/Lumi-node/envfactory).
+Contributions are welcome! Please open issues and pull requests on [GitHub](https://github.com/Automate-Capture/envfactory).
 
 ## Citation
 
@@ -180,10 +180,10 @@ Contributions are welcome! Please open issues and pull requests on [GitHub](http
   author={Young, Andrew},
   organization={Automate Capture Research},
   year={2024},
-  url={https://github.com/Lumi-node/envfactory}
+  url={https://github.com/Automate-Capture/envfactory}
 }
 ```
 
 ## License
 
-MIT License. See [LICENSE](https://github.com/Lumi-node/envfactory/blob/main/LICENSE) for details.
+MIT License. See [LICENSE](https://github.com/Automate-Capture/envfactory/blob/master/LICENSE) for details.

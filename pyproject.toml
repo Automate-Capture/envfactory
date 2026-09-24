@@ -39,10 +39,10 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Lumi-node/envfactory"
-Documentation = "https://lumi-node.github.io/envfactory/"
-Repository = "https://github.com/Lumi-node/envfactory"
-Issues = "https://github.com/Lumi-node/envfactory/issues"
+Homepage = "https://github.com/Automate-Capture/envfactory"
+Documentation = "https://automate-capture.github.io/envfactory/"
+Repository = "https://github.com/Automate-Capture/envfactory"
+Issues = "https://github.com/Automate-Capture/envfactory/issues"
 
 [tool.ruff]
 line-length = 100
